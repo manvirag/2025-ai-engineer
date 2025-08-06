@@ -183,3 +183,13 @@ Combines LLMs with external data sources.
   - Internal knowledge bots
   - QA over web, PDFs, databases
 
+
+## RAG Deep dive:
+
+## AI agents deep dive:
+
+## MCP server:
+
+## High level understanding of multi modal:
+
+## LLM architecture deep dive:
