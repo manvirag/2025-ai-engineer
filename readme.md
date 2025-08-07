@@ -183,6 +183,17 @@ Combines LLMs with external data sources.
   - Internal knowledge bots
   - QA over web, PDFs, databases
 
+## NLP vs LLM  (Brief)
+
+- NLP is the science of understanding and working with language.
+- LLMs are advanced tools (like ChatGPT) used within NLP to understand and generate text.
+- Gen AI is the bigger umbrella that includes LLMs and also tools that make:
+  - Images (like DALL·E, Midjourney)
+  - Music (like Suno)
+  - Videos (like Sora)
+  - Code (like GitHub Copilot)
+![](image.png)
+
 
 ## RAG Deep dive:
 
