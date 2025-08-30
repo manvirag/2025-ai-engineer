@@ -656,12 +656,22 @@ GradioUI(agent).launch()
 - [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners?tab=readme-ov-file#-multi-language-support)
 - [Hugging Face Agents Course Repository](https://github.com/huggingface/agents-course)
 
----
 
-## Advanced Topics
+### MCP Server:
 
-### MCP Server
-*(Content to be added)*
+- Its protocol to connec with tools in ai agents , below is usecase of using file processing as mcp server. 
+- its like api for AI, that contain different functions and llm can use any of them as per context.
+- like did the ls, cd etc command connection in local claude.
+- you can create server and attach to claude. 
+- you can create client with given server, assuming open api, etc other have the api available for supporting this. 
+- example client: https://modelcontextprotocol.io/clients
+
+
+- future ref and making project:
+  - https://modelcontextprotocol.io/quickstart/user
+  - https://docs.anthropic.com/en/docs/mcp
+  - https://www.youtube.com/watch?v=kQmXtrmQ5Zg
+
 
 ### High-Level Understanding of Multi-Modal Agents
 *(Content to be added)*
