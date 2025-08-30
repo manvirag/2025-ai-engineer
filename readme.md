@@ -674,8 +674,13 @@ GradioUI(agent).launch()
 
 
 ### High-Level Understanding of Multi-Modal Agents
-*(Content to be added)*
 
+- like which can understand text, image ,voice in one interface kind of multimodal example.
+
+
+
+- ref: 
+  - https://www.youtube.com/watch?v=640KMYtxCeI
 ### LLM Architecture Deep Dive
 *(Content to be added)*
 
