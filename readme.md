@@ -467,15 +467,206 @@ Ref for later and deep diving:
 - https://github.com/langchain-ai/rag-from-scratch?tab=readme-ov-file
 - https://mallahyari.github.io/rag-ebook/04_advanced_rag.html
 - https://www.coursera.org/learn/retrieval-augmented-generation-rag
+- https://community.deeplearning.ai/t/rag-lecture-notes/852809/2
+
+
+## AI Agents Deep Dive
+
+### What are AI Agents?
+
+![AI Agent Architecture](/agent.png)
+
+An AI Agent is a system that leverages an AI model to interact with its environment in order to achieve a user-defined objective. It combines:
+
+- **Reasoning**: Planning and decision-making capabilities
+- **Planning**: Breaking down complex tasks into manageable steps
+- **Execution**: Performing actions through external tools to fulfill tasks
+- **Brain**: Large Language Model (LLM) for understanding and generating responses
+- **Tools**: Custom code functions that the LLM can call to interact with the real world
+
+---
+
+## AI Models for Agents (The Brain)
+
+An agent's brain is typically a **Large Language Model (LLM)**, trained on vast amounts of text to understand and generate human language. LLMs work by predicting the next word in a sequence.
+
+### Key Concepts
+- **Tokens**: LLMs process sub-word units called tokens (e.g., `"interesting"` becomes `["interest", "ing"]`)
+- **Context Window**: The maximum number of tokens an LLM can process at once
+
+### Base vs. Instruct Models
+
+#### Base Model
+- Only predicts the next word
+- Raw language generation capabilities
+- Less suitable for agent applications
+
+#### Instruct Model
+- Fine-tuned to follow instructions
+- Most common choice for agents
+- Better at understanding and executing commands
+
+### Messages and Prompts
+
+An LLM doesn't *remember* a conversation. Instead, the entire chat history is concatenated into a single prompt for each turn. This prompt includes:
+
+- **Roles**: system, user, assistant
+- **Special tokens**: `<|im_start|>`, `<|im_end|>` for correct formatting
+- **Context**: Previous messages and conversation history
+
+---
+
+## Tools (The Body)
+
+Because LLMs can only work with text, they need **tools** to perform real-world actions. The LLM learns to *ask* for a tool by generating a structured text output, which the agent then executes.
+
+### Why Tools are Essential
+LLMs cannot directly:
+- Access real-time information
+- Perform reliable calculations
+- Interact with external systems
+- Execute physical actions
+
+### Common Tool Examples
+
+#### Calculator
+- Performs math accurately
+- Handles complex calculations
+- Provides reliable numerical results
+
+#### Web Search
+- Fetches real-time information
+- Accesses current data and news
+- Browses the internet programmatically
+
+#### API Interface
+- Connects to external services
+- Integrates with platforms like Spotify, GitHub, etc.
+- Enables programmatic interactions
+
+#### Image Generation
+- Creates images from text prompts
+- Generates visual content
+- Supports creative tasks
+
+---
+
+## The Agent's Core Cycle: TAO
+
+The **Thought → Action → Observation (TAO)** cycle is the fundamental loop that defines how an agent operates.
+
+### Thought Phase
+- The agent's internal reasoning
+- The LLM plans the next step based on current context
+- Analyzes available information and tools
+
+### Action Phase
+- The agent executes a tool
+- Machine-readable instruction in predictable format
+- Can be JSON, function calls, or code blocks
+
+### Observation Phase
+- The agent receives feedback from the tool
+- Could be data, success message, or error
+- Provides information for the next thought cycle
+
+### Benefits of TAO Cycle
+- Breaks down complex tasks into manageable steps
+- Enables interaction with the real world
+- Allows adaptation based on real-time information
+- Creates iterative problem-solving capabilities
 
 
 
-## AI agents deep dive:
+## Prompting Styles
 
-## MCP server:
+### Chain-of-Thought (CoT)
+- Prompts the model to reason step-by-step
+- Works without using external tools
+- Good for logical reasoning tasks
 
-## High level understanding of multi modal:
+### ReAct (Reason + Act)
+- Interleaves reasoning with tool-based actions
+- Combines thought process with tool execution
+- Most effective for agent-based tasks
 
-## LLM architecture deep dive:
+
+
+## Agent Implementation Examples
+
+### Basic Dummy Agent Code
+```python
+# Check dummy.py for basic agent implementation
+```
+
+### Using smolagents Library (Hugging Face)
+
+**smolagents** is a lightweight agent framework by Hugging Face that automates the TAO loop. It is built around the idea of a **Code Agent**—an agent that writes and executes Python code to perform actions.
+
+#### Code Example with smolagents
+```python
+from smolagents import CodeAgent, DuckDuckGoSearchTool, InferenceClientModel, load_tool
+from tools.final_answer import FinalAnswerTool
+from Gradio_UI import GradioUI
+import yaml
+
+# Load prompt templates
+with open("prompts.yaml", "r") as f:
+    prompt_templates = yaml.safe_load(f)
+
+# Define custom tools
+def greet_user(name: str) -> str:
+    """Say hello to the user
+    Args:
+        name: the user's name
+    """
+    return f"Hello {name}, nice to meet you!"
+
+# Initialize tools
+final_answer = FinalAnswerTool()
+search = DuckDuckGoSearchTool()
+image_generation_tool = load_tool("agents-course/text-to-image", trust_remote_code=True)
+
+# Configure LLM model
+model = InferenceClientModel(
+    max_tokens=1024,
+    temperature=0.5,
+    model_id="Qwen/Qwen2.5-Coder-32B-Instruct"
+)
+
+# Create agent
+agent = CodeAgent(
+    model=model,
+    tools=[final_answer, greet_user, search, image_generation_tool],
+    max_steps=6,
+    verbosity_level=1,
+    prompt_templates=prompt_templates
+)
+
+# Launch with Gradio UI
+GradioUI(agent).launch()
+```
+
+---
+
+## References for Deep Dive
+
+### Learning Resources
+- [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/unit1/introduction)
+- [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners?tab=readme-ov-file#-multi-language-support)
+- [Hugging Face Agents Course Repository](https://github.com/huggingface/agents-course)
+
+---
+
+## Advanced Topics
+
+### MCP Server
+*(Content to be added)*
+
+### High-Level Understanding of Multi-Modal Agents
+*(Content to be added)*
+
+### LLM Architecture Deep Dive
+*(Content to be added)*
 
 
