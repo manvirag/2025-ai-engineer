@@ -1,3 +1,7 @@
+## colab link
+## https://colab.research.google.com/#fileId=https%3A//huggingface.co/agents-course/notebooks/blob/main/unit1/dummy_agent_library.ipynb&scrollTo=jtQHk9HHAkb8
+
+
 import os
 from huggingface_hub import InferenceClient
 import json
