@@ -681,6 +681,8 @@ GradioUI(agent).launch()
 
 - ref: 
   - https://www.youtube.com/watch?v=640KMYtxCeI
+  - https://github.com/mongodb-developer/multimodal-agents-lab
+
 ### LLM Architecture Deep Dive
 *(Content to be added)*
 
