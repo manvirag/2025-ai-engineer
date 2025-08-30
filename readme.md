@@ -675,14 +675,38 @@ GradioUI(agent).launch()
 
 ### High-Level Understanding of Multi-Modal Agents
 
-- like which can understand text, image ,voice in one interface kind of multimodal example.
+![](/agent.png)
+![](/agent_1.png)
+![](/agent_2.png)
+![](/agent_3.png)
+![](/agent_4.png)
+![](/agent_5.png)
+![](/agent_6.png)
+![](/agent_7.png)
+![](/agent_8.png)
+![](/agent_9.png)
+![](/agent_10.png)
+![](/agent_11.png)
+![](/agent_12.png)
+![](/agent_13.png)
+![](/agent_14.png)
+![](/agent_15.png)
+![](/agent_16.png)
+![](/agent_17.png)
+![](/agent_18.png)
+![](/agent_19.png)
+![](/agent_20.png)
+![](/agent_21.png)
 
 
 
 - ref: 
-  - https://www.youtube.com/watch?v=640KMYtxCeI
-  - https://github.com/mongodb-developer/multimodal-agents-lab
-
+  - https://www.youtube.com/watch?
+  v=640KMYtxCeI
+  - https://github.com/
+  mongodb-developer/
+  multimodal-agents-lab
+  
 ### LLM Architecture Deep Dive
 *(Content to be added)*
 
